@@ -8,6 +8,7 @@ import express from 'express';
 import http from 'http'
 
 import connectToDatabase from './databaseConnection';
+import logger from "./utilities/logger";
 
 const app: express.Application = express();
 const httpServer: http.Server = http.createServer(app);
@@ -19,11 +20,11 @@ const port = process.env.PORT || 3000
 httpServer.listen(port)
 
 httpServer.on('error', (err) => {
-    console.error(err)
+    logger.error(err)
 })
 
 httpServer.on('listening', () => {
-    console.log(`Server Started on port ${httpServer.address().port}`)
+    logger.info(`Server Started on port ${httpServer.address().port}`, { filePath: __filename })
 })
 
 export { app, httpServer }
