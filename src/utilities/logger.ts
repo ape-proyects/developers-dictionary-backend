@@ -54,7 +54,7 @@ const logger = createLogger({
  * providing autocomplete functionality
  */
 interface Logger {
-    error(message: string, options: { filePath: string }): void
+    error(message: string | Error, options: { filePath: string }): void
     warn(message: string, options: { filePath: string }): void
     info(message: string, options: { filePath: string }): void
     http(message: string, options: { filePath: string }): void

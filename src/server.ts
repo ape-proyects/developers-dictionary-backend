@@ -20,7 +20,7 @@ const port = process.env.PORT || 3000
 httpServer.listen(port)
 
 httpServer.on('error', (err) => {
-    logger.error(err)
+    logger.error(err, { filePath: __filename })
 })
 
 httpServer.on('listening', () => {
