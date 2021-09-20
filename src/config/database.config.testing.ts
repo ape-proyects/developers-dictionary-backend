@@ -7,7 +7,9 @@ const DatabaseConfigTesting = {
     database: ":memory:",
     dropSchema: true,
     synchronize: true,
-    logging: false
+    logging: false,
+    entities: ["dist/**/*.entity{.ts,.js}",
+        "src/**/*.entity{.ts,.js}"]
 }
 
 export default DatabaseConfigTesting
