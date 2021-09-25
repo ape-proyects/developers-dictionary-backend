@@ -196,5 +196,5 @@ module.exports = {
   // watchman: true,
 
   // If 'true' console.log will not be shown
-  silent: false,
+  silent: true,
 };
