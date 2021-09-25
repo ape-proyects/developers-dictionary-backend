@@ -12,4 +12,4 @@ const DatabaseConfigTesting = {
         "src/**/*.entity{.ts,.js}"]
 }
 
-export default DatabaseConfigTesting
+export default Object.freeze(DatabaseConfigTesting)

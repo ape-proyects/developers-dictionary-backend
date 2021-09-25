@@ -8,4 +8,4 @@ const LoggerConfig = {
     },
 }
 
-export default LoggerConfig
+export default Object.freeze(LoggerConfig)

@@ -15,4 +15,4 @@ const DatabaseConfig = {
         "src/**/*.entity{.ts,.js}"]
 }
 
-export default DatabaseConfig
+export default Object.freeze(DatabaseConfig)
