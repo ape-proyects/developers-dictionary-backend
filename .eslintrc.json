@@ -25,7 +25,6 @@
         "linebreak-style": "off",
         "indent": "off",
         "no-console": "off",
-        "semi": "off",
         "import/order": "off",
         "func-names": "off",
         "eqeqeq": "off",
@@ -44,6 +43,8 @@
         "no-plusplus": "off",
         "no-bitwise": "off",
         "new-cap": "off",
-        "no-underscore-dangle": "off"
-    }
+        "no-underscore-dangle": "off",
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "semi": ["error", "never"]
+    }  
 }
