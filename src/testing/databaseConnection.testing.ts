@@ -1,13 +1,12 @@
-import { createConnection, getConnection, Connection } from 'typeorm'
-import DatabaseConfigTesting from '../config/database.config.testing';
+import { PrismaClient } from '@prisma/client'
+const prisma: PrismaClient = new PrismaClient()
 
-const getDatabaseConnection = async (): Promise<Connection> => {
-    await createConnection(DatabaseConfigTesting)
-    return getConnection()
+const getDatabaseConnection = (): PrismaClient => {
+    return prisma
 }
 
 const closeDatabaseConnection = async (): Promise<void> => {
-    await getConnection().close()
+    await prisma.$disconnect()
 }
 
 export { getDatabaseConnection, closeDatabaseConnection }

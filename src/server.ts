@@ -3,17 +3,15 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 
-import 'reflect-metadata';
 import express from 'express';
 import http from 'http'
+import { PrismaClient } from '@prisma/client'
 
-import connectToDatabase from './databaseConnection';
 import logger from "./utilities/logger";
 
 const app: express.Application = express();
 const httpServer: http.Server = http.createServer(app);
-
-connectToDatabase()
+const prisma = new PrismaClient()
 
 // Start server on port from environment variables or default port
 const port = process.env.PORT || 3000

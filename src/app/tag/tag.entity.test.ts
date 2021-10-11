@@ -1,18 +1,25 @@
-import { Repository } from "typeorm"
+import { TagTypes } from './tag.entity';
 import { closeDatabaseConnection, getDatabaseConnection } from "../../testing/databaseConnection.testing"
-import { Tag } from "./tag.entity"
+import { PrismaClient } from '@prisma/client';
 
-let databaseConnection
-let solutionRepository: Repository<Tag>
+let prisma: PrismaClient
 
 beforeAll(async () => {
-    databaseConnection = await getDatabaseConnection()
-    solutionRepository = databaseConnection.getRepository(Tag)
+    prisma = await getDatabaseConnection()
+})
+
+beforeEach(async () => {
+    await prisma.tag.deleteMany({})
 })
 
 describe('Tag model', () => {
     test('is saved without error', async () => {
-        await solutionRepository.save(new Tag('', ''))
+        await prisma.tag.create({ 
+            data: {
+                name: '',
+                type: TagTypes.ARCHITECTURE
+            }
+        })
     })
 })
 
