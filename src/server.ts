@@ -25,4 +25,4 @@ httpServer.on('listening', () => {
     logger.info(`Server Started on port ${httpServer.address().port}`, { filePath: __filename })
 })
 
-export { app, httpServer }
+export { app, httpServer, prisma }
