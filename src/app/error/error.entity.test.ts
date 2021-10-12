@@ -1,4 +1,4 @@
-import { TagTypes } from './../tag/db/tag.entity';
+import { TagTypes } from './../tag/db/tag.entity'
 import { PrismaClient } from '@prisma/client'
 import { closeDatabaseConnection, getDatabaseConnection } from '../../testing/databaseConnection.testing'
 
