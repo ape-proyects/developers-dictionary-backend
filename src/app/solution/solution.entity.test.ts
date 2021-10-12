@@ -1,36 +1,36 @@
-import { Repository } from "typeorm"
 import { closeDatabaseConnection, getDatabaseConnection } from "../../testing/databaseConnection.testing"
-import Solution from "./solution.entity"
-import Error from '../error/error.entity'
-import File from '../file/file.entity'
+import { PrismaClient } from '@prisma/client';
 
-let databaseConnection
-let solutionRepository: Repository<Solution>
-let errorRepository: Repository<Error>
-
-let solution: Solution
+let prisma: PrismaClient
 
 beforeAll(async () => {
-    databaseConnection = await getDatabaseConnection()
-    solutionRepository = databaseConnection.getRepository(Solution)
-    errorRepository = databaseConnection.getRepository(Error)
+    prisma = await getDatabaseConnection()
+})
+
+beforeEach(async () => {
+    await prisma.solution.deleteMany({})
 })
 
 describe('Solution model', () => {
     test('is saved without error', async () => {
-        const error = new Error('', '')
-        await errorRepository.save(error)
-        solution = new Solution('', error)
-        await solutionRepository.save(solution)
+        await prisma.solution.create({
+            data:{
+                text: '',
+                link: '',
+                images: ['', ''],
+                error: {
+                    create: {
+                        title: '',
+                        description: '',
+                        log: '',
+                        images: ['', ''],
+                        userId: '',
+                    }
+                }
+            }
+        })
     })
 
-    test('images relation works', async () => {
-        const image = new File('')
-        solution.addImage(image)
-        await errorRepository.save(solution)
-
-        expect(solution.images[0]).toBe(image)
-    })
 })
 
 afterAll(async () => {
