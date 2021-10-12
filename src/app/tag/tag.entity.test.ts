@@ -1,6 +1,6 @@
-import { TagTypes } from './tag.entity';
-import { closeDatabaseConnection, getDatabaseConnection } from "../../testing/databaseConnection.testing"
-import { PrismaClient } from '@prisma/client';
+import { TagTypes } from './tag.entity'
+import { closeDatabaseConnection, getDatabaseConnection } from '../../testing/databaseConnection.testing'
+import { PrismaClient } from '@prisma/client'
 
 let prisma: PrismaClient
 

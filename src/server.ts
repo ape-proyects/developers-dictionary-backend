@@ -1,16 +1,16 @@
 // Takes the variables contained in .env file and adds them to "process.env"
 // With process.env.VARIABLE_NAME we can access them
-import * as dotenv from "dotenv";
-dotenv.config();
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-import express from 'express';
+import express from 'express'
 import http from 'http'
 import { PrismaClient } from '@prisma/client'
 
-import logger from "./utilities/logger";
+import logger from './utilities/logger'
 
-const app: express.Application = express();
-const httpServer: http.Server = http.createServer(app);
+const app: express.Application = express()
+const httpServer: http.Server = http.createServer(app)
 const prisma = new PrismaClient()
 
 // Start server on port from environment variables or default port

@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const colors = require('colors');
+const colors = require('colors')
 
 colors.setTheme({
     error: 'red',
@@ -9,7 +9,7 @@ colors.setTheme({
     verbose: 'cyan',
     debug: 'blue',
     silly: 'rainbow',
-});
+})
 
 const setStringColor = (text: string, level: string): string => {
     switch (level) {
@@ -34,7 +34,7 @@ const setStringColor = (text: string, level: string): string => {
         case 'silly':
 
     }
-    return text;
+    return text
 }
 
 export default setStringColor

@@ -1,7 +1,7 @@
-import express from "express";
+import express from 'express'
 
 const setAppRoutes = (app: express.Application): void => {
-    const router = express.Router();
+    const router = express.Router()
     // router.use('/module', moduleRouter)
     app.use('', router)
 }

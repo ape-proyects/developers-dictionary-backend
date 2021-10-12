@@ -1,5 +1,5 @@
-import LoggerConfig from "../config/logger.config";
-import setStringColor from "./colors";
+import LoggerConfig from '../config/logger.config'
+import setStringColor from './colors'
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { createLogger, format, transports } = require('winston')
 const { printf } = format
@@ -25,8 +25,8 @@ const getFilePathFromCompletePath = (completeFilePath: string): string => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const myFormat = printf(({ level, message, filePath, timestamp }: any) => {
-    return setStringColor(`[${level.toUpperCase()}] ${timestamp} [${getFilePathFromCompletePath(filePath)}]: `, level) + `${message}`;
-});
+    return setStringColor(`[${level.toUpperCase()}] ${timestamp} [${getFilePathFromCompletePath(filePath)}]: `, level) + `${message}`
+})
 
 const logger = createLogger({
     level: getLoggerLevel(),
@@ -47,7 +47,7 @@ const logger = createLogger({
         new transports.Console(),
         new transports.File({ filename: 'logs/'+LoggerConfig.ERRORS_FILENAME, level: 'error' })
     ]
-});
+})
 
 /**
  * Interface to make use of the logger object easily by 
