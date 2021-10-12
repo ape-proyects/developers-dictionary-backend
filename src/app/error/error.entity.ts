@@ -1,4 +1,4 @@
-import { Tag } from './../tag/tag.entity';
+import { Tag } from './../tag/tag.entity'
 import Solution from '../solution/solution.entity'
 
 export default interface Error {

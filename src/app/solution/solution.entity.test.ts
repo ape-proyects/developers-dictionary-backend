@@ -1,5 +1,5 @@
-import { closeDatabaseConnection, getDatabaseConnection } from "../../testing/databaseConnection.testing"
-import { PrismaClient } from '@prisma/client';
+import { closeDatabaseConnection, getDatabaseConnection } from '../../testing/databaseConnection.testing'
+import { PrismaClient } from '@prisma/client'
 
 let prisma: PrismaClient
 

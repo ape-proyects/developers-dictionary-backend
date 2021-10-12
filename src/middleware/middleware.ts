@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import express from 'express';
-const morgan = require('morgan');
-const cors = require('cors');
+import express from 'express'
+const morgan = require('morgan')
+const cors = require('cors')
 
 /**
  * Sets app middleware
