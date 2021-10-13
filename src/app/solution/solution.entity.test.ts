@@ -1,5 +1,5 @@
 import { closeDatabaseConnection, getDatabaseConnection } from '../../testing/databaseConnection.testing'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Solution, Error } from '@prisma/client'
 
 let prisma: PrismaClient
 
@@ -13,20 +13,37 @@ beforeEach(async () => {
 
 describe('Solution model', () => {
     test('is saved without error', async () => {
-        await prisma.solution.create({
-            data:{
+        const solution: Solution =
+            {
                 text: '',
                 link: '',
                 images: ['', ''],
+            } as Solution
+
+        const solutionSaved = await prisma.solution.create({
+            data: {
+                ...solution
+            }
+        })
+
+        const error: Error =
+            {
+                title: '',
+                description: '',
+                log: '',
+                images: ['', ''],
+                userId: '',
+            } as Error
+
+        await prisma.solution.update({
+            where:
+            {
+                id: solutionSaved.id
+            },
+            data: {
                 error: {
-                    create: {
-                        title: '',
-                        description: '',
-                        log: '',
-                        images: ['', ''],
-                        userId: '',
-                    }
-                }
+                    create: error
+                },
             }
         })
     })

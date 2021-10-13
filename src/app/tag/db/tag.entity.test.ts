@@ -1,6 +1,5 @@
-import { TagTypes } from './tag.entity'
 import { closeDatabaseConnection, getDatabaseConnection } from '../../../testing/databaseConnection.testing'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Tag, TagType } from '@prisma/client'
 
 let prisma: PrismaClient
 
@@ -14,11 +13,15 @@ beforeEach(async () => {
 
 describe('Tag model', () => {
     test('is saved without error', async () => {
-        await prisma.tag.create({ 
-            data: {
+        const tag: Tag =
+            {
                 name: '',
-                type: TagTypes.ARCHITECTURE
-            }
+                type: TagType.architecture,
+                userId: ''
+            } as Tag
+
+        await prisma.tag.create({
+            data: tag
         })
     })
 })
